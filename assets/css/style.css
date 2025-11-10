@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* استایل‌های سفارشی */
+body {
+	@apply font-sans leading-relaxed;
+}
