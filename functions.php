@@ -6,6 +6,9 @@
 if ( ! defined( 'MYTHEME_DIR' ) ) {
 	define( 'MYTHEME_DIR', get_template_directory() );
 }
+if ( ! defined( 'THEME_NAME' ) ) {
+	define( 'THEME_NAME', 'opcaspain' );
+}
 
 // URL قالب
 if ( ! defined( 'MYTHEME_URI' ) ) {
@@ -53,4 +56,12 @@ add_action( 'wp_enqueue_scripts', 'mytheme_enqueue_scripts' );
 
 // require فایل پست تایپ
 require MYTHEME_DIR . '/inc/portfolio-posttype.php';
+
+// include require file
+include_once MYTHEME_DIR . '/include/opt/redux-core/framework.php';
+require_once MYTHEME_DIR . '/include/cmb2/init.php';
+
+include_once MYTHEME_DIR . '/admin/redux-config.php';
+require_once MYTHEME_DIR . '/admin/meta-box.php';
+
 ?>

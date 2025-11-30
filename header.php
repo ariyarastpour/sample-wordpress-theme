@@ -19,7 +19,11 @@
 	<meta property="og:url" content="<?php echo esc_url( get_permalink() ); ?>">
 	<meta property="og:image" content="<?php echo has_post_thumbnail() ? get_the_post_thumbnail_url() : ''; ?>">
 	<meta name="twitter:card" content="summary_large_image">
-
+	<?php 
+	if(option_value('body-bg')) {
+		echo '<style> body { background-color: ' . option_value('body-bg') . '!important;}</style>';
+	}
+	?>
 	<?php wp_head(); ?>
 </head>
 
@@ -27,12 +31,13 @@
 	<header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50" x-data="{ openDropdown: null }">
 		<div class="container mx-auto flex justify-between items-center p-4 gap-4">
 			<!-- لوگو -->
-			<a href="<?php echo home_url(); ?>"
-				class="flex items-center gap-2 text-2xl font-bold text-blue-600 hover:text-blue-700 transition">
-				<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-blue-600" fill="none" viewBox="0 0 24 24"
-					stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-				</svg>
+			<a href="<?php echo home_url(); ?>" class="flex items-center gap-2 text-2xl font-bold text-blue-600 hover:text-blue-700 transition">
+				<?php
+					if(option_value('site_icon')){
+						$theme_favicon = option_value('site_icon')['url'];
+						echo '<img src="' . esc_url($theme_favicon) . '" />';
+					}
+				?>
 				<span><?php bloginfo( 'name' ); ?></span>
 			</a>
 

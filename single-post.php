@@ -58,6 +58,14 @@ if ( have_posts() ) :
 					<?php the_content(); ?>
 				</div>
 			</div>
+
+			<?php
+				$selected_attribute_value = get_post_meta( get_the_ID(), 'post_single_link_url', true );
+				$selected_attribute_value_2 = get_post_meta( get_the_ID(),'post_single_link_title', true );
+				if($selected_attribute_value_2){
+					echo '<a href="' . esc_url( $selected_attribute_value ) . '" class="selected_attribute_value">' . esc_html( $selected_attribute_value_2 ) . '</a>';
+				}
+			?>
 		</article>
 
 		<!-- نوشته‌های مرتبط -->
